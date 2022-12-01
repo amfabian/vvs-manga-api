@@ -29,13 +29,24 @@ public class ResourceTest {
     }
 
     @Test
-    @DisplayName("Teste 3")
-    void testError(){
+    @DisplayName("Teste Busca")
+    void testSearch(){
 
         given()
             .when().get("/manga/search/db")
             .then()
                 .statusCode(200);
+
+    }
+
+    @Test
+    @DisplayName("Teste 3")
+    void testError(){
+
+        given()
+            .when().get("/manga/db")
+            .then()
+                .statusCode(404);
 
     }
 
