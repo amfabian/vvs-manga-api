@@ -27,13 +27,17 @@ jobs:
         java-version: '17'
         distribution: 'temurin'
         cache: maven
+      
+      env: # Or as an environment variable
+        ps_secret: ${{ secrets.EDOCKERHUB_PS }}
+        login_secret: ${{ secrets.EDOCKERHUB_USERNAME }}
         
     - name: Pre Package
       run: chmod +x mvnw
         
     - name: Build with Maven
       run: |       
-        echo "${{ secrets.EDOCKERHUB_PS }}" | docker login --username "${{ secrets.EDOCKERHUB_USERNAME }}" --password-stdin
+        echo "ps_secret" | docker login --username login_secret --password-stdin
         ./mvnw clean package -Dquarkus.container-image.push=true -Dquarkus.jib.base-registry-password=${{ secrets.DOCKERHUB_PS }}
     
     - name: Docker list all images 
