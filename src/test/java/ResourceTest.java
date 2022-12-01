@@ -35,7 +35,7 @@ public class ResourceTest {
         given()
             .when().get("/manga/search/db")
             .then()
-                .statusCode(410);
+                .statusCode(200);
 
     }
 
