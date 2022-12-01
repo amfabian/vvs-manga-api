@@ -18,7 +18,7 @@ public class ResourceTest {
 
     }
     @Test
-    @DisplayName("Teste 1")
+    @DisplayName("Teste 2")
     void testErrorPath(){
 
         given()
@@ -27,4 +27,16 @@ public class ResourceTest {
                 .statusCode(404);
 
     }
+
+    @Test
+    @DisplayName("Teste 3")
+    void testError(){
+
+        given()
+            .when().get("/manga/search/db")
+            .then()
+                .statusCode(410);
+
+    }
+
 }
