@@ -37,7 +37,7 @@ jobs:
         
     - name: Build with Maven
       run: |       
-        echo "ps_secret" | docker login --username login_secret --password-stdin
+        echo "$ps_secret" | docker login --username $login_secret --password-stdin
         ./mvnw clean package -Dquarkus.container-image.push=true -Dquarkus.jib.base-registry-password=${{ secrets.DOCKERHUB_PS }}
     
     - name: Docker list all images 
