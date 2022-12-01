@@ -18,11 +18,6 @@ import dev.ifrs.restclient.model.Response;;
 @Path("/manga")
 public class Resource {
     
-    @ConfigProperty(name = "x-rapidapi-key")
-    String xRapidapiKey;
-
-    @ConfigProperty(name = "x-rapidapi-host")
-    String xRapidapiHost;
 
     @Inject
     @RestClient
@@ -37,7 +32,7 @@ public class Resource {
     @Timeout(7000)
     public Response hello(@PathParam("query") String query){
         System.out.println("RESOURCE.java");
-        Response resp = mangaRestClient.search(xRapidapiKey, xRapidapiHost, query);
+        Response resp = mangaRestClient.search(query);
         System.out.println("search on resource");
         return resp;
         

@@ -15,8 +15,6 @@ import dev.ifrs.restclient.model.Response;
 @Produces(MediaType.APPLICATION_JSON)
 public interface MangaRestClient {
     @GET
-    @Path("/search/manga")
-    Response search(@HeaderParam("x-rapidapi-key") String xRapidapiKey,
-    @HeaderParam("x-rapidapi-host") String xRapidapiHost,
-    @QueryParam("q") String query);
+    @Path("/manga")
+    Response search(@QueryParam("q") String query);
 }

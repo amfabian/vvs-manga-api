@@ -8,7 +8,9 @@ public class Result {
     private String type;
     private long chapters;
     private long volumes;
-    private String image_url;
+    private Images images;
+
+
     public long getMal_id() {
         return mal_id;
     }
@@ -51,11 +53,11 @@ public class Result {
     public void setVolumes(long volumes) {
         this.volumes = volumes;
     }
-    public String getImage_url() {
-        return image_url;
+    public Images getImages() {
+        return images;
     }
-    public void setImage_url(String image_url) {
-        this.image_url = image_url;
+    public void setImages(Images images) {
+        this.images = images;
     }
     
 }
