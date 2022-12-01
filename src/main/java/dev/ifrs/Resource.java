@@ -38,7 +38,7 @@ public class Resource {
     public Response hello(@PathParam("query") String query){
         System.out.println("RESOURCE.java");
         Response resp = mangaRestClient.search(xRapidapiKey, xRapidapiHost, query);
-        System.out.println("search");
+        System.out.println("search on resource");
         return resp;
         
     }
