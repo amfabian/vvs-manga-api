@@ -1,19 +1,11 @@
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-
-import groovyjarjarantlr4.v4.runtime.misc.NotNull;
-
 import static io.restassured.RestAssured.given;
-import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.containsString;
-
-import org.hamcrest.core.IsEqual;
-
 import io.quarkus.test.junit.QuarkusTest;
-import io.restassured.internal.path.json.JSONAssertion;
 
 @QuarkusTest
-public class ResourceTest {
+class ResourceTest {
     
     @Test
     @DisplayName("Teste 1 - teste que a página inicial do service está funcionando")

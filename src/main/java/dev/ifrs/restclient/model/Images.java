@@ -1,7 +1,5 @@
 package dev.ifrs.restclient.model;
 
-import java.util.List;
-
 public class Images {
 
     private Jpg jpg;
