@@ -5,17 +5,19 @@ import groovyjarjarantlr4.v4.runtime.misc.NotNull;
 
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.CoreMatchers.containsString;
 
 import org.hamcrest.core.IsEqual;
 
 import io.quarkus.test.junit.QuarkusTest;
+import io.restassured.internal.path.json.JSONAssertion;
 
 @QuarkusTest
 public class ResourceTest {
     
     @Test
-    @DisplayName("Teste 1")
-    void test(){
+    @DisplayName("Teste 1 - teste que a página inicial do service está funcionando")
+    void testHome(){
 
         given()
             .when().get()
@@ -24,7 +26,7 @@ public class ResourceTest {
 
     }
     @Test
-    @DisplayName("Teste 2")
+    @DisplayName("Teste 2 - Testa Path errado")
     void testErrorPath(){
 
         given()
@@ -35,7 +37,7 @@ public class ResourceTest {
     }
 
     @Test
-    @DisplayName("Teste Busca")
+    @DisplayName("Teste 3 Faz uma Busca qualquer na api")
     void testSearch(){
 
         given()
@@ -46,8 +48,8 @@ public class ResourceTest {
     }
 
     @Test
-    @DisplayName("Teste 3")
-    void testError(){
+    @DisplayName("Teste 4 FAz uma busca no path errado")
+    void testSearchError(){
 
         given()
             .when().get("/manga/db")
@@ -57,15 +59,22 @@ public class ResourceTest {
     }
 
     @Test
-    @DisplayName("Teste 3")
+    @DisplayName("Teste 5 - Faz busca por isekai na API")
     void testAPI(){
 
-        given()
-            .when().get("/manga/search/128991")
+               
+        given().when()
+        .get("/manga/search/isekai")
             .then()
-           // .body("data.mal_id[0]", is("133666"));
-            .body(is(null));
-
+            .assertThat().body(containsString("128991"));
     }
+    @Test
+    @DisplayName("Teste 6 - Faz busca por um manga em especifico na API")
+    void testAPIJSON(){
 
+        given()
+            .when().get("/manga/search/to love ru darkness")
+            .then()
+            .assertThat().body(containsString("22519"));
+    }
 }
