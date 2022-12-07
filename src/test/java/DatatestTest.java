@@ -42,7 +42,7 @@ public class DatatestTest {
    options.addArguments("--disable-dev-shm-usage");
    options.addArguments("--headless");
    driver = new ChromeDriver(options);
-   driver.navigate().to("http://localhost:8083");
+   driver.navigate().to("http://0.0.0.0:8083");
    driver.manage().window().maximize();
    driver.manage().timeouts().implicitlyWait(120, TimeUnit.MILLISECONDS);
 
@@ -53,7 +53,7 @@ public class DatatestTest {
   }
   @Test
   public void datatest() {
-    driver.get("http://localhost:8083/manga/search/digimon");
+    driver.get("http://0.0.0.0:8083/manga/search/digimon");
     driver.manage().window().setSize(new Dimension(1920, 1016));
     {
       WebElement element = driver.findElement(By.cssSelector("pre"));
