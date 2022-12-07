@@ -42,7 +42,7 @@ public class DatatestTest {
    options.addArguments("--disable-dev-shm-usage");
    options.addArguments("--headless");
    driver = new ChromeDriver(options);
-   driver.navigate().to("http://0.0.0.0:8083");
+   driver.navigate().to("https://google.com");
    driver.manage().window().maximize();
    driver.manage().timeouts().implicitlyWait(120, TimeUnit.MILLISECONDS);
 
