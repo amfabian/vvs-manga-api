@@ -53,7 +53,7 @@ public class DatatestTest {
   public void tearDown() {
     driver.quit();
   }
-  @Test
+/*   @Test
   public void datatest() {
     driver.get("http://0.0.0.0:8083/manga/search/digimon");
     driver.manage().window().setSize(new Dimension(1920, 1016));
@@ -66,7 +66,18 @@ public class DatatestTest {
       List<WebElement> elements = driver.findElements(By.cssSelector("pre"));
       assertTrue(elements.size() > 0);
     }
-  }
+  } */
+
+  @Test
+public void userLogin(){
+    WebElement searchTxt = driver.findElement(By.name("q"));
+    searchTxt.sendKeys("automation");
+    WebElement submitBtn = driver.findElement(By.name("btnK"));
+    submitBtn.click();
+    System.out.println("Current URL is:" + driver.getCurrentUrl());
+    assertTrue(driver.getTitle().contains("automation"));
+    System.out.println("Current Title is:" + driver.getTitle());
+}
 
  
 }
