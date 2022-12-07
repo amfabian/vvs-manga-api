@@ -54,7 +54,7 @@ public class DatatestTest {
     driver.quit();
   }
    @Test
-  public void datatest() {
+  public void dataTestNotNull() {
     driver.get("http://0.0.0.0:8083/manga/search/digimon");
     driver.manage().window().setSize(new Dimension(1920, 1016));
     {
@@ -69,7 +69,22 @@ public class DatatestTest {
   } 
 
   @Test
-public void userLogin(){
+  public void dataTest() {
+    driver.get("http://0.0.0.0:8083/manga/search/isekai");
+    driver.manage().window().setSize(new Dimension(1920, 1016));
+    {
+      WebElement element = driver.findElement(By.cssSelector("pre"));
+      Actions builder = new Actions(driver);
+      builder.doubleClick(element).perform();
+    }
+    {
+      List<WebElement> elements = driver.findElements(By.cssSelector("pre"));
+      assertTrue(elements.get(0).getText().contains("data"));
+    }
+  } 
+
+  @Test
+  public void userLogin(){
     WebElement searchTxt = driver.findElement(By.name("q"));
     searchTxt.sendKeys("automation");
     WebElement submitBtn = driver.findElement(By.name("btnK"));
