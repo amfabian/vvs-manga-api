@@ -55,7 +55,7 @@ public class DatatestTest {
   }
    @Test
   public void datatest() {
-    driver.get("http://0.0.0.0:8082/manga/search/digimon");
+    driver.get("http://0.0.0.0:8083/manga/search/digimon");
     driver.manage().window().setSize(new Dimension(1920, 1016));
     {
       WebElement element = driver.findElement(By.cssSelector("pre"));

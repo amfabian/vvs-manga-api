@@ -41,7 +41,7 @@ jobs:
         ./InstallChrome.sh 
 
     - name: Run Container
-      run: docker run --name manga --rm -p 8082:8083 -d amfabian/vvs-manga-api
+      run: docker run --name manga --rm -p 8083:8083 -d amfabian/vvs-manga-api
 
     - name: Build with Maven
       run: |       

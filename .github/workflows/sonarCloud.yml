@@ -34,7 +34,10 @@ jobs:
         run: |
           chmod +x ./InstallChrome.sh
           ./InstallChrome.sh 
-      
+          
+      - name: Run Container
+      run: docker run --name manga --rm -p 8083:8083 -d amfabian/vvs-manga-api
+
       - name: Build and analyze
         env:
           GITHUB_TOKEN: ${{ secrets.HUB_TK }}  # Needed to get PR information, if any
