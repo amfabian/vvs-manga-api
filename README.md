@@ -1,4 +1,4 @@
-# pw2-manga-api Project
+# pw2-manga-api Projeto
 
 This project uses Quarkus, the Supersonic Subatomic Java Framework.
 
